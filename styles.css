@@ -1,0 +1,129 @@
+/* General styles */
+body {
+    font-family: 'Lexend', sans-serif;
+    background-color: #ebf4fb;
+    color: #111111;
+}
+
+/* Navbar styles */
+.navbar-info .navbar-nav .nav-link {
+    color: #ffffff; /* Navbar links color */
+}
+
+.navbar-info .navbar-nav .nav-link.active {
+    color: #111111; /* Active link color */
+}
+
+.navbar-info .navbar-brand {
+    color: #ffffff; /* Navbar brand color */
+}
+
+/* Hero section styles */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: url('./media/images/hero-image.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-top: 70px; /* Add padding to avoid overlap with the navbar */
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1; /* Ensure overlay is above background */
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2; /* Ensure content is above overlay */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero h3 {
+    font-size: 2rem; 
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.25rem; 
+    margin-bottom: 1.5rem;
+}
+
+/* Profile photo styles */
+.profile-photo img {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    border: 5px solid white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-photo img:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Button group styles */
+.btn-group .btn {
+    margin: 5px;
+}
+
+/* Social media icons styles */
+.social a {
+    color: white;
+    margin: 0 15px;
+    font-size: 25px;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #111111;
+    color: #00da86;
+}
+
+.dark-mode .navbar-info .nav-link {
+    color: #00da86;
+}
+
+.dark-mode .navbar-info .nav-link.active {
+    color: #ffffff;
+}
+
+.dark-mode .hero .overlay {
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay for dark mode */
+}
+
+.dark-mode .navbar-info {
+    background-color: #222222;
+}
+
+.dark-mode .footer {
+    background-color: #222222;
+    color: #00da86;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero h3 {
+        font-size: 1.75rem;
+    }
+    .hero p {
+        font-size: 1.125rem;
+    }
+    .profile-photo img {
+        width: 200px;
+        height: 200px;
+    }
+}
