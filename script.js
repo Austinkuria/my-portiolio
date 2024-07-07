@@ -6,12 +6,16 @@ document.getElementById('darkModeToggle').addEventListener('click', function () 
 
     // Change navbar and footer background colors based on dark mode state
     if (document.body.classList.contains('dark-mode')) {
-        navbar.classList.replace('navbar-info', 'navbar-dark'); // Replace navbar-info with navbar-dark
-        footer.classList.replace('bg-info', 'bg-dark'); // Replace bg-info with bg-dark
+        navbar.classList.remove('navbar-info'); // Remove navbar-info class
+        navbar.classList.add('navbar-dark', 'bg-dark'); // Add navbar-dark and bg-dark classes
+        footer.classList.remove('bg-info'); // Remove bg-info class
+        footer.classList.add('bg-dark'); // Add bg-dark class
         document.getElementById('darkModeToggle').innerHTML = '<i class="bi bi-sun"></i>'; // Change icon to sun
     } else {
-        navbar.classList.replace('navbar-dark', 'navbar-info'); // Replace navbar-dark with navbar-info
-        footer.classList.replace('bg-dark', 'bg-info'); // Replace bg-dark with bg-info
+        navbar.classList.remove('navbar-dark', 'bg-dark'); // Remove navbar-dark and bg-dark classes
+        navbar.classList.add('navbar-info'); // Add navbar-info class
+        footer.classList.remove('bg-dark'); // Remove bg-dark class
+        footer.classList.add('bg-info'); // Add bg-info class
         document.getElementById('darkModeToggle').innerHTML = '<i class="bi bi-moon"></i>'; // Change icon to moon
     }
 });

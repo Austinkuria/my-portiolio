@@ -1,47 +1,48 @@
 /* General styles */
 body {
     font-family: 'Lexend', sans-serif;
-    background-color: #f8f9fa;
-    color: #333333;
+    background-color: #f8f9fa; /* Light mode background color */
+    color: #333333; /* Text color */
 }
 
 /* Navbar styles */
-.navbar-info .navbar-nav .nav-link {
-    color: #ffffff; /* Navbar links color */
+.navbar {
+    background-color: #007bff; /* Navbar background color */
 }
 
-.navbar-info .navbar-nav .nav-link.active {
-    color: #111111; /* Active link color */
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #ffffff; /* Navbar links and brand color */
 }
 
-.navbar-info .navbar-brand {
-    color: #ffffff; /* Navbar brand color */
+.navbar-nav .nav-link.active {
+    color: #000000; /* Active link color */
 }
 
 /* Hero section styles */
 .hero {
-    position: relative; /* Ensures that the overlay and content are positioned relative to the hero section */
+    position: relative;
     min-height: 100vh;
     background: url('media/images/hero-image.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     color: white;
-    padding-top: 70px; /* Add padding to avoid overlap with the navbar */
+    padding-top: 70px;
 }
 
 .hero .overlay {
-    position: absolute; /* Positions the overlay relative to the hero section */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
-    z-index: 1; /* Ensure overlay is above background */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .hero .container {
-    position: relative; /* Ensures content within the hero section is above the overlay */
-    z-index: 2; /* Ensure content is above overlay */
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
@@ -64,12 +65,12 @@ body {
     border-radius: 50%;
     width: 250px;
     height: 250px;
-    border: 5px solid white;
+    border: 5px solid  #007bff;
     transition: transform 0.3s ease-in-out;
 }
 
 .profile-photo img:hover {
-    transform: scale(1.1); /* Scale up on hover */
+    transform: scale(1.1);
 }
 
 /* Button group styles */
@@ -79,15 +80,19 @@ body {
 
 /* Social media icons styles */
 .social a {
-    color: white;
+    color: #007bff; /* Social media icon color */
     margin: 0 15px;
     font-size: 25px;
+}
+
+.social a:hover {
+    color: #0056b3; /* Social media icon hover color */
 }
 
 /* Contact Section */
 .contact {
     padding: 80px 0;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Contact section background color */
 }
 
 .contact-heading {
@@ -102,12 +107,11 @@ body {
     gap: 30px;
 }
 
-/* Contact form and details container styles */
 .contact-form-container,
 .contact-details {
     flex: 1 1 45%;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Contact form and details background color */
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -131,12 +135,11 @@ body {
     font-size: 16px;
 }
 
-/* Form button styles */
 .form-btn {
     padding: 15px 30px;
     border: none;
     border-radius: 5px;
-    background-color: #17a2b8;
+    background-color: #007bff; /* Button background color */
     color: white;
     cursor: pointer;
     font-size: 16px;
@@ -144,7 +147,7 @@ body {
 }
 
 .form-btn:hover {
-    background-color: #138496;
+    background-color: #0056b3; /* Button hover background color */
 }
 
 .contact-info {
@@ -158,54 +161,43 @@ body {
 }
 
 .contact-info a {
-    color: #17a2b8;
+    color: #007bff; /* Contact info link color */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    color: #138496;
-}
-
-/* Social media icons within contact details */
-.social a {
-    color: #17a2b8;
-    font-size: 24px;
-    transition: color 0.3s ease;
-}
-
-.social a:hover {
-    color: #138496;
+    color: #0056b3; /* Contact info link hover color */
 }
 
 /* Footer styles */
 footer {
-    background-color: #17a2b8;
+    background-color: #007bff; /* Footer background color */
     color: white;
     padding: 15px 0;
 }
 
 /* Dark mode styles */
 body.dark-mode {
-    background-color: #111111;
-    color: #f8f9fa;
+    background-color: #111111; /* Body background color in dark mode */
+    color: #f8f9fa; /* Text color in dark mode */
 }
 
 /* Navbar dark mode styles */
-.dark-mode .navbar-info {
-    background-color: #333333;
+.navbar-dark {
+    background-color: #333333; /* Navbar background color in dark mode */
 }
 
-.dark-mode .navbar-info .navbar-nav .nav-link,
-.dark-mode .navbar-info .navbar-brand {
-    color: #f8f9fa;
+.navbar-dark .navbar-nav .nav-link,
+.navbar-dark .navbar-brand {
+    color: #f8f9fa; /* Navbar links and brand color in dark mode */
 }
 
 /* Contact section dark mode styles */
 .dark-mode .contact,
 .dark-mode .contact-form-container,
 .dark-mode .contact-details {
-    background-color: #222222;
+    background-color: #222222; /* Contact form and details background color in dark mode */
     color: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* Lighten box shadow for contrast */
@@ -220,18 +212,18 @@ body.dark-mode {
 
 /* Form controls dark mode styles */
 .dark-mode .form-controls {
-    background-color: #333333;
+    background-color: #333333; /* Form input background color in dark mode */
     color: #f8f9fa;
     border-color: #555555;
 }
 
 /* Form button dark mode styles */
 .dark-mode .form-btn {
-    background-color: #007bff;
+    background-color: #007bff; /* Button background color in dark mode */
 }
 
 .dark-mode .form-btn:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Button hover background color in dark mode */
 }
 
 /* Contact info and social links dark mode styles */
@@ -245,7 +237,300 @@ body.dark-mode {
     color: #0056b3;
 }
 
-/* Footer dark mode styles */
-.dark-mode footer {
-    background-color: #333333;
+/* About Section */
+.about {
+    padding: 80px 0;
+    background-color: #f8f9fa;
 }
+
+.about-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 5px solid #007bff; /* Profile image border color */
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-image img:hover {
+    transform: scale(1.1);
+}
+
+.skills {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.skills .skill {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+
+.skills .skill i {
+    color: #007bff; /* Skill icon color */
+    font-size: 3rem;
+    transition: color 0.3s ease;
+}
+
+.skills .skill p {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.skills .skill:hover i {
+    color: #0056b3; /* Skill icon color on hover */
+}
+
+.passions,
+.personal {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.passions p,
+.personal p {
+    font-size: 1.25rem;
+}
+
+/* Dark mode styles for about section */
+.dark-mode .about {
+    background-color: #222222;
+}
+
+.dark-mode .profile-image img {
+    border-color: #007bff; /* Profile image border color in dark mode */
+}
+
+.dark-mode .skills .skill i {
+    color: #007bff; /* Skill icon color in dark mode */
+}
+
+.dark-mode .skills .skill:hover i {
+    color: #0056b3; /* Skill icon color on hover in dark mode */
+}
+
+/* Dark mode toggle button */
+#darkModeToggle {
+    color: #007bff; /* Dark mode toggle button color in light mode */
+}
+
+.dark-mode #darkModeToggle {
+    color: #ffffff; /* Dark mode toggle button color in dark mode */
+}
+
+/* Specific styles for contact page */
+.contact .contact-form label i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.contact .form-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact .form-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries */
+@media (max-width: 991.98px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero h3 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .profile-photo img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .form-controls,
+    .form-btn {
+        font-size: 14px;
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .contact-form-container,
+    .contact-details {
+        flex: 1 1 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h3 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .profile-photo img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .contact-form-container,
+    .contact-details {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero h3 {
+        font-size: 1.3rem;
+    }
+
+    .hero p {
+        font-size: 0.8rem;
+    }
+
+    .profile-photo img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .contact .contact-form label i {
+        font-size: 1rem;
+    }
+}
+
+/* General styles */
+body {
+    font-family: 'Lexend', sans-serif;
+    background-color: #f8f9fa; /* Light mode background color */
+    color: #333333; /* Text color */
+}
+
+/* Project section styles */
+.project {
+    padding: 80px 0;
+    background-color: #ffffff; /* Project section background color */
+}
+
+.project .card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+.project .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.project .card-body {
+    text-align: center;
+}
+
+.project .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.project .card-text {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.project .card-footer {
+    background-color: transparent;
+    border-top: none;
+    text-align: center;
+}
+
+.project .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.project .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Dark mode styles */
+.dark-mode {
+    background-color: #121212;
+    color: #f8f9fa;
+}
+
+.dark-mode .navbar-info,
+.dark-mode .footer {
+    background-color: #333333;
+    color: #f8f9fa;
+}
+
+.dark-mode .project {
+    background-color: #1c1c1c;
+}
+
+.dark-mode .project .card {
+    background-color: #2c2c2c;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .project .card-title,
+.dark-mode .project .card-text {
+    color: #f8f9fa;
+}
+
+.dark-mode .project .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.dark-mode .project .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
