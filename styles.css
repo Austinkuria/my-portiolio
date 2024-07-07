@@ -102,6 +102,10 @@ footer {
     background-color: #ffffff; /* Project section background color */
 }
 
+.project-card {
+    margin-bottom: 50px;
+}
+
 .project .card {
     border: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
