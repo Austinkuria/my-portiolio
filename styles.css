@@ -20,6 +20,13 @@ body {
     color: #000000; /* Active link color */
 }
 
+.navbar-brand img {
+    border-radius: 50%; /* Makes the logo circular */
+    height: 40px; /* Ensures the logo is square */
+    width: 40px; /* Ensures the image is square */
+    object-fit: cover; /* Ensures the image fits inside the circular container */
+}
+
 /* Hero section styles */
 .hero {
     position: relative;
@@ -93,8 +100,15 @@ body {
 /* Footer styles */
 footer {
     background-color: #007bff; /* Footer background color */
-    color: white;
-    padding: 15px 0;
+    color: white; /* Footer text color */
+    display: flex; /* Flexbox layout */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 50px; /* Footer height */
+}
+
+footer p {
+    margin: 0; /* Removes any default margin */
 }
 
 /* Project section styles */
