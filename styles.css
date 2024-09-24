@@ -22,8 +22,8 @@ body {
 
 .navbar-brand img {
     border-radius: 50%; /* Makes the logo circular */
-    height: 40px; /* Ensures the logo is square */
-    width: 40px; /* Ensures the image is square */
+    height: 60px; 
+    width: 60px; 
     object-fit: cover; /* Ensures the image fits inside the circular container */
 }
 
