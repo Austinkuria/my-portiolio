@@ -83,6 +83,7 @@ body {
     color: #007bff; /* Social media icon color */
     margin: 0 15px;
     font-size: 25px;
+    margin-bottom: 0; /* Remove bottom margin */
 }
 
 .social a:hover {
@@ -267,18 +268,19 @@ footer {
 }
 
 .form-btn {
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff; /* Button background color */
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px !important;
+    margin-top: 20px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    background-color: #007bff !important; /* Button background color */
+    color: white !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    transition: background-color 0.3s ease !important;
 }
 
 .form-btn:hover {
-    background-color: #0056b3; /* Button hover background color */
+    background-color: #0056b3 !important; /* Button hover background color */
 }
 
 .contact-info {
@@ -392,6 +394,37 @@ footer {
 
 .dark-mode .contact-info a:hover {
     color: #0056b3; /* Contact info link hover color in dark mode */
+}
+
+.dark-mode .social a {
+    color: #007bff; /* Social media icon color in dark mode */
+}
+
+.dark-mode .social a:hover {
+    color: #0056b3; /* Social media icon hover color in dark mode */
+}
+
+.dark-mode .btn-group .btn {
+    background-color: #343a40; /* Button group background color in dark mode */
+    color: #f8f9fa; /* Button group text color in dark mode */
+}
+
+.dark-mode .btn-group .btn.active {
+    background-color: #007bff; /* Active button background color in dark mode */
+    color: #ffffff; /* Active button text color in dark mode */
+}
+
+.dark-mode .btn-group .btn:hover {
+    background-color: #0056b3; /* Button hover background color in dark mode */
+}
+
+.dark-mode .btn-group .btn.active:hover {
+    background-color: #0056b3; /* Active button hover background color in dark mode */
+}
+
+.dark-mode .greet-heading {
+    color: #f8f9fa; /* Greet heading color in dark mode */
+
 }
 
 /* Responsive Design */
