@@ -10,7 +10,10 @@ const PORT = process.env.PORT || 3000;
 app.use(cors()); // Allow CORS for all requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(cors({
+    origin: 'https://austinmaina.netlify.app/contact' // Replace with your actual domain
+  }));
+  
 // Route to handle form submission
 app.post('/send_email', (req, res) => {
     const { name, email, phone, message } = req.body;
