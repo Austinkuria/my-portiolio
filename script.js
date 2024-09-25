@@ -52,27 +52,55 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     }
 
     // Fetch form values
-    var name = document.getElementById('name').value.trim(); // Get the value of the name input field
-    var email = document.getElementById('email').value.trim(); // Get the value of the email input field
-    var phone = document.getElementById('phone').value.trim(); // Get the value of the phone input field
-    var message = document.getElementById('message').value.trim(); // Get the value of the message input field
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var message = document.getElementById('message').value.trim();
 
-    // Clear form fields after submission
-    document.getElementById('name').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('phone').value = '';
-    document.getElementById('message').value = '';
+    // Prepare data to be sent
+    var formData = {
+        name: name,
+        email: email,
+        phone: phone,
+        message: message
+    };
 
-    // Provide user feedback after submission
-    alert('Message sent successfully!');
+    // Send form data to the server
+    fetch('http://127.0.0.1:3000/send_email', { // Adjust the URL to your backend endpoint
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the JSON from the response
+    })
+    .then(data => {
+        // Handle success response
+        alert('Message sent successfully!');
+        // Clear form fields after successful submission
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('message').value = '';
+    })
+    .catch(error => {
+        // Handle error response
+        console.error('There was a problem with the fetch operation:', error);
+        alert('Error sending message. Please try again later.');
+    });
 });
 
 // Form Validation Function
 function validateForm() {
-    var name = document.getElementById('name').value.trim(); // Get the value of the name input field
-    var email = document.getElementById('email').value.trim(); // Get the value of the email input field
-    var message = document.getElementById('message').value.trim(); // Get the value of the message input field
-    var phone = document.getElementById('phone').value.trim(); // Get the value of the phone input field
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var message = document.getElementById('message').value.trim();
+    var phone = document.getElementById('phone').value.trim();
 
     // Validate empty fields
     if (name === '' || email === '' || phone === '' || message === '') {
@@ -90,7 +118,7 @@ function validateForm() {
     // Validate phone number
     var phonePattern = /^\d{10}$/;
     if (!phonePattern.test(phone)) {
-        alert('Invalid phone number.');
+        alert('Invalid phone number. Must be 10 digits.');
         return false;
     }
 
