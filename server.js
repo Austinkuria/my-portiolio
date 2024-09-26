@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 // app.use(cors());
 app.use(cors({
-    origin: ['http://127.0.0.1:5500', 'https://austinmaina.netlify.app'] // actual domain(s)
+    origin: ['http://127.0.0.1:5500', 'https://austinmaina.netlify.app'] // frontend domains actual domains
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,8 +31,9 @@ app.post('/send_email', (req, res) => {
     });
 
     const mailOptions = {
-        from: email,
+        from: 'kuriaaustin125@gmail.com', // Authenticated email
         to: 'kuriaaustin125@gmail.com',
+        replyTo: email,                   // User's email for replies
         subject: `New message from ${name}`,
         text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
     };
