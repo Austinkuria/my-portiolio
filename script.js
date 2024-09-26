@@ -109,6 +109,13 @@ function validateForm() {
         return false;
     }
 
+      // Validate name - only letters and spaces
+    var namePattern = /^[A-Za-z\s]+$/; // Allow letters and spaces only
+    if (!namePattern.test(name)) {
+        alert('Invalid name. Name must contain only letters and spaces.');
+        return false;
+    }
+
     // Validate email format
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
