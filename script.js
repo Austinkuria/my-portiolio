@@ -66,7 +66,7 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     };
 
     // Send form data to the server
-    fetch('http://127.0.0.1:3000/send_email', { // Adjust the URL to your backend endpoint
+    fetch('http://127.0.0.1:3000/send_email', { // URL to your backend endpoint
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -90,7 +90,8 @@ document.getElementById('contactForm').addEventListener('submit', function (even
     })
     .catch(error => {
         // Handle error response
-        console.error('There was a problem with the fetch operation:', error);
+
+        console.error('Fetch error:', error);
         alert('Error sending message. Please try again later.');
     });
 });
