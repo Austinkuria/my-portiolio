@@ -69,7 +69,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label"><i class="bi bi-phone"></i> Your Phone</label>
-                                <input class="form-control" type="text" id="phone" name="phone" placeholder="Enter your phone number">
+                                <input class="form-control" type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label"><i class="bi bi-chat-dots"></i> Your Message</label>
@@ -119,98 +119,93 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
-    <script>       
-// Contact Form Submission Handling
-document.getElementById('contactForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the form from submitting automatically
+    <script>
+        // Contact Form Submission Handling
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the form from submitting automatically
 
-    // Validate form inputs
-    if (!validateForm()) {
-        return;
-    }
+            // Validate form inputs
+            if (!validateForm()) {
+                return;
+            }
 
-    // Fetch form values
-    var name = document.getElementById('name').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var phone = document.getElementById('phone').value.trim();
-    var message = document.getElementById('message').value.trim();
+            // Fetch form values
+            var name = document.getElementById('name').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+            var message = document.getElementById('message').value.trim();
 
-    // Prepare data to be sent
-    var formData = {
-        name: name,
-        email: email,
-        phone: phone,
-        message: message
-    };
+            // Prepare data to be sent
+            var formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                message: message
+            };
 
-    // Send form data to the server
-    fetch('http://127.0.0.1:3000/send_email', { // URL to your backend endpoint
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+            fetch('/api/send_email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse the JSON from the response
+            })
+            .then(data => {
+                // Handle success response
+                alert('Message sent successfully!');
+                // Clear form fields after successful submission
+                document.getElementById('contactForm').reset();
+            })
+            .catch(error => {
+                // Handle error response
+                console.error('Fetch error:', error);
+                alert('Error sending message. Please try again later.');
+            });
+        });
+
+        // Form Validation Function
+        function validateForm() {
+            var name = document.getElementById('name').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var message = document.getElementById('message').value.trim();
+            var phone = document.getElementById('phone').value.trim();
+
+            // Validate empty fields
+            if (name === '' || email === '' || phone === '' || message === '') {
+                alert('Please fill in all fields.');
+                return false;
+            }
+
+            // Validate name - only letters and spaces
+            var namePattern = /^[A-Za-z\s]+$/; // Allow letters and spaces only
+            if (!namePattern.test(name)) {
+                alert('Invalid name. Name must contain only letters and spaces.');
+                return false;
+            }
+
+            // Validate email format
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert('Invalid email format.');
+                return false;
+            }
+
+            // Validate phone number
+            var phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert('Invalid phone number. Must be 10 digits.');
+                return false;
+            }
+
+            // If all fields are valid
+            return true;
         }
-        return response.json(); // Parse the JSON from the response
-    })
-    .then(data => {
-        // Handle success response
-        alert('Message sent successfully!');
-        // Clear form fields after successful submission
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('phone').value = '';
-        document.getElementById('message').value = '';
-    })
-    .catch(error => {
-        // Handle error response
-
-        console.error('Fetch error:', error);
-        alert('Error sending message. Please try again later.');
-    });
-});
-
-// Form Validation Function
-function validateForm() {
-    var name = document.getElementById('name').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var message = document.getElementById('message').value.trim();
-    var phone = document.getElementById('phone').value.trim();
-
-    // Validate empty fields
-    if (name === '' || email === '' || phone === '' || message === '') {
-        alert('Please fill in all fields.');
-        return false;
-    }
-
-      // Validate name - only letters and spaces
-    var namePattern = /^[A-Za-z\s]+$/; // Allow letters and spaces only
-    if (!namePattern.test(name)) {
-        alert('Invalid name. Name must contain only letters and spaces.');
-        return false;
-    }
-
-    // Validate email format
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert('Invalid email format.');
-        return false;
-    }
-
-    // Validate phone number
-    var phonePattern = /^\d{10}$/;
-    if (!phonePattern.test(phone)) {
-        alert('Invalid phone number. Must be 10 digits.');
-        return false;
-    }
-
-    // If all fields are valid
-    return true;
-}
     </script>
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
